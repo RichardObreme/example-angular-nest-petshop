@@ -1,0 +1,26 @@
+{
+  "name": "@tuto-angular-nest/pet-markt-be-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@tuto-angular-nest/pet-markt-be"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/pet-markt-be-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@tuto-angular-nest/pet-markt-be:build",
+          "@tuto-angular-nest/pet-markt-be:serve"
+        ]
+      }
+    }
+  }
+}
