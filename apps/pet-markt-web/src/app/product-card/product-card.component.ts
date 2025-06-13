@@ -1,5 +1,5 @@
 import { Product } from '@prisma/client';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,4 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent {
   product = input.required<Product>();
+  addToCart = output<Product>();
+
+  onAddToCart(product: Product) {
+    this.addToCart.emit(product);
+  }
 }
