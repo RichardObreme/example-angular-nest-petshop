@@ -48,8 +48,8 @@ const UPDATE_ORDER = gql`
 `;
 
 const DELETE_UNPAID_ORDER = gql`
-  mutation RemoveOrder($id: String!) {
-    removeOrder(id: $id) {
+  mutation RemoveUnpaid($id: String!) {
+    removeUnpaid(id: $id) {
       orderId
       success
       error
