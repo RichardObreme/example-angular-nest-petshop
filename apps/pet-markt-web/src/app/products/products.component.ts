@@ -20,7 +20,7 @@ export class ProductsComponent {
   destroyed = untilDestroyed();
 
   constructor() {
-    this.productStore.loadProducts();
+    this.productStore.getProducts();
     afterNextRender(() => {
       this.searchSubject
         .pipe(debounceTime(500), distinctUntilChanged(), this.destroyed())
