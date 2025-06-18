@@ -12,8 +12,15 @@ export class ProductsService {
     return 'This action adds a new product';
   }
 
-  findAll() {
-    return this.prisma.product.findMany();
+  findAll(config: { featured?: boolean } = {}) {
+    return this.prisma.product.findMany({
+      where:
+        config.featured !== undefined
+          ? {
+              isFeatured: true,
+            }
+          : undefined,
+    });
   }
 
   findOne(id: string) {
